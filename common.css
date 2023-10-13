@@ -1,0 +1,103 @@
+/* Universal Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #E9E9E9;
+    background-image: url("tireblog.jpg");
+    background-size: cover;
+    line-height: 1.6;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    flex-shrink: 0;
+    text-align: center;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    width: 100%;
+    position: relative;
+}
+
+/* Styles for the Latest Articles section */
+#latestArticles {
+    margin: 40px;
+    margin-left: 50;
+}
+
+#latestArticles h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.article-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.article-box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.article-box p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.article-box a {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.article-box a:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.Affiliate {
+    background-color: rgb(18, 141, 100);
+    padding: 15px 25px;
+    border-radius: 25px;
+    width: 200px;
+    height: 200px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
