@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <!-- Add common stylesheets and scripts here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/article-form.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('views.index') }}">Home</a></li>
+                <li><a href="{{ url_for('views.about') }}">About Us</a></li>
+                <li><a href="{{ url_for('views.blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('views.dealerships') }}">Best Tire Dealerships</a></li>
+                <li><a href="{{ url_for('views.contact') }}">Contact Us</a></li>
+                <li><a href="{{ url_for('views.learn') }}">Learn & How To</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Main content will be overridden by child templates -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2023 Tire Review. All Rights Reserved.</p>
+            <ul>
+                <li><a href="{{ url_for('views.contact') }}">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+    
+
+    <!-- Add common JavaScript files at the bottom -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

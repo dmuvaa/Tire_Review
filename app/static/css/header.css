@@ -1,0 +1,58 @@
+/* General Header Styling */
+header {
+    background-color: #007bff; /* A pleasant blue shade */
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+}
+
+/* Logo Styling */
+header #logo {
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 20px; /* Adjust as needed */
+}
+
+/* Navigation Bar Styling */
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px; /* Adjust padding as needed */
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+header nav ul li {
+    margin: 0 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover,
+header nav ul li a:focus {
+    color: #ffdd55; /* Highlight color on hover/focus */
+}
+
+/* Responsive Design - Adjust as needed */
+@media screen and (max-width: 768px) {
+    header nav {
+        flex-direction: column;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+}

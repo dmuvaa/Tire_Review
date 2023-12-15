@@ -1,0 +1,95 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Hero Section Styling */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/path/to/hero-image.jpg') no-repeat center center/cover;
+    color: #fff;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 1.5em;
+}
+
+.btn-hero {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #e8491d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.btn-hero:hover {
+    background: #333;
+}
+
+/* Featured Articles Section */
+.featured-articles {
+    padding: 40px 0;
+    background: #f4f4f4;
+}
+
+.featured-articles h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.articles-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.articles-container article {
+    background: white;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.articles-container article h3 {
+    margin-top: 0;
+}
+
+.articles-container article p {
+    line-height: 1.4;
+}
+
+.articles-container article a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container, .hero {
+        width: 95%;
+    }
+
+    .articles-container {
+        grid-template-columns: 1fr;
+    }
+}

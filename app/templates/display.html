@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document Title</title>
+    {% if article %}
+    <title>{{ article.title|safe }}</title>
+    {% else %}
+    <title>Blog</title>
+    {% endif %}
 </head>
 <body>
-    {{ data|safe }}
+    {% if article %}
+    <div>{{ article.content|safe }}</div>
+    {% else %}
+    <div><p>Article not found Sorry!</p></div>
+    {% endif %}
 </body>
 </html>

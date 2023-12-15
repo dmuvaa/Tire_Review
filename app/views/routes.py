@@ -1,4 +1,5 @@
-from flask import render_template, request
+from flask import render_template, redirect, url_for, request
+from ..forms import ArticleForm
 from . import views
 from ..models import Article
 from .. import db
@@ -19,18 +20,27 @@ def article():
 
 @views.route('/blog', methods=['GET', 'POST'])
 def blog():
+    form = ArticleForm()
     if request.method == 'POST':
-        new_data = Article(content=request.form.get('editordata'))
-        db.session.add(new_data)
-        db.session.commit()
-        return 'Posted Data'
-    return render_template('blog.html')
+        title = request.form.get('title')
+        slug = request.form.get('slug')
+        description = request.form.get('meta_description')
+        content=content=request.form.get('editordata')
+        article = Article(title=title, slug=slug, content=content, meta_description=description)
 
-@views.route('/display/<int:id>')
-def display(id):
-    data = Article.query.get(id)
-    print(data.content)
-    return render_template('display.html', data=data.content)
+        db.session.add(article)
+        db.session.commit()
+        return redirect(url_for('views.display', slug=article.slug))
+    return render_template('blog.html', form=form)
+
+@views.route('/display/<slug>')
+def display(slug):
+    data = Article.query.filter_by(slug=slug).first()
+    print(data.slug)
+    if data:
+        return render_template('display.html', article=data)
+    return render_template('display.html')
+    
 
 
 @views.route('/contact')

@@ -1,8 +1,26 @@
 footer {
+    background-color: #333;
+    color: white;
     text-align: center;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    width: 100%;
-    position: relative;
+    padding: 10px 0;
+}
+
+.footer-container {
+    width: 80%;
+    margin: auto;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
 }

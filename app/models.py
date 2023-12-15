@@ -13,7 +13,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
-    role = db.Column(db.String(20), default='editor')  # default role is 'editor'
+    role = db.Column(db.String(20), default='editor')  # Default role is 'editor'
 
     articles = db.relationship('Article', backref='author', lazy='dynamic')
 
@@ -25,10 +25,13 @@ class Article(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(140))
+    slug = db.Column(db.String(255), unique=True, nullable=False)
     content = db.Column(db.Text)
+    meta_description = db.Column(db.String(255))
     date_created = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     date_updated = db.Column(db.DateTime, index=True, default=datetime.utcnow, onupdate=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
 
     def __repr__(self):
         return f'<Article {self.title}>'

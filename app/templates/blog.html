@@ -7,10 +7,10 @@
     <meta name="description" content="The latest articles and insights on tires, driving safety, and maintenance.">
     <meta name="keywords" content="tire, blog, driving, safety, maintenance">
     <link rel="icon" href="path_to_your_favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles/common.css">
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/footer.css">
-    <link rel="stylesheet" href="styles/blog.css">
+    <link rel="stylesheet" href="static/css/common.css">
+    <link rel="stylesheet" href="static/css/header.css">
+    <link rel="stylesheet" href="static/css/footer.css">
+    <link rel="stylesheet" href="static/css/blog.css">
     <title>Tire Blog | Blog</title>
     
     <!-- include libraries(jQuery, bootstrap) -->
@@ -25,17 +25,36 @@
 
 
 <body>
-    <h1>Write Article Below!</h1>
-    <form method="post">
-        <textarea id="summernote" name="editordata"></textarea>
-        <input type="submit" value="Add Content" />
-    </form>
+    <div class="container">
+        <h1>Create a New Article</h1>
+        <form method="post">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.title.label(class="form-label") }}
+                {{ form.title(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.slug.label(class="form-label") }}
+                {{ form.slug(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.meta_description.label(class="form-label") }}
+                {{ form.meta_description(class="form-control") }}
+            </div>
+            <div class="form-group">
+                <label for="summernote" class="form-label">Content</label>
+                <textarea id="summernote" name="editordata" class="form-control"></textarea>
+            </div>
+            <input type="submit" value="Submit Article" class="btn btn-primary">
+        </form>
+    </div>
 
     <script>
     $(document).ready(function() {
         $('#summernote').summernote({
             height: 300,
-            maxHeight: 400
+            maxHeight: 400,
+            focus: true
         });
     });
     </script>

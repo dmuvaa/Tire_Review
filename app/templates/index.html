@@ -1,70 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/css/common.css">
-    <link rel="stylesheet" href="static/css/header.css">
-    <link rel="stylesheet" href="static/css/footer.css">
-    <link rel="stylesheet" href="static/css/blog.css">
-    <title>Tire Blog</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-    <!-- HEADER -->
-    <header>
-        <h1>Tire Blog</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="blog.html">Blog</a>
-            <a href="dealerships.html">Best Tire Dealerships</a>
-            <a href="contact.html">Contact Us</a>
-            <a href="learn.html">Learn & How To</a>
-        </nav>
-    </header>
+{% block title %}Home - Tire Review{% endblock %}
 
-<!-- MAIN CONTENT (Update based on each page) -->
-<main>
-    <h2>Welcome to Tire Blog</h2>
-    <p>Explore our collection of articles, reviews, and insights about tires. Whether you're a car enthusiast, a cautious driver, or just curious about the world of tires, we've got you covered. From tips on choosing the right tires for different road conditions to maintenance guides and industry news, our blog is your go-to source for all things tires.</p>
-    <p>Don't forget to check out our affiliate links below for some great deals on car tires, car bonnets, and car windshields!</p>
-    <div class="affiliate-links">
-        <a href="http://" class="Affiliate" target="_blank">Tire Dealerships</a>
-        <a href="http://" class="Affiliate" target="_blank">Wheel Alignment and Balancing</a>
-        <a href="http://" class="Affiliate" target="_blank">Find By Car</a>
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+
+<!-- Hero Section -->
+<section class="hero">
+    <h1>Welcome to Tire Review</h1>
+    <p>Your ultimate guide for everything tires.</p>
+    <a href="{{ url_for('views.about') }}" class="btn-hero">Learn More About Us</a>
+</section>
+
+<!-- Featured Articles Section -->
+<section class="featured-articles">
+    <h2>Featured Articles</h2>
+    <div class="articles-container">
+        <!-- Article previews go here -->
+        <article>
+            <h3>Article Title 1</h3>
+            <p>A brief description of the article...</p>
+            <a href="#">Read More</a>
+        </article>
+        <article>
+            <h3>Article Title 2</h3>
+            <p>A brief description of the article...</p>
+            <a href="#">Read More</a>
+        </article>
+        <!-- Add more articles as needed -->
     </div>
-</main>
+</section>
 
+<!-- Other Sections as Desired -->
+<!-- You can add sections like 'Latest News', 'Tire Maintenance Tips', 'Top Dealerships', etc. -->
 
-    <section id="latestArticles">
-        <h2>Latest Articles</h2>
-        <div class="grid">
-            <div class="article-box">
-                <h3>Article 1</h3>
-                <p>Learn the Basics of Tire Maintenance for a Safer Drive</p>
-                <a href="article1.html">Read More</a>
-            </div>
-            <div class="article-box">
-                <h3>Article 2</h3>
-                <p>The Different Types of Tires and When to Use Them</p>
-                <a href="article2.html">Read More</a>
-            </div>
-            <div class="article-box">
-                <h3>Article 3</h3>
-                <p>Tire Safety: What You Need to Know About Tread Depth</p>
-                <a href="article3.html">Read More</a>
-            </div>
-            <!-- Add more article boxes as needed -->
-        </div>
-    </section>
-    
-
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2023 Tire Blog. All rights reserved. Designed by Dennis Muvaa</p>
-    </footer>
-
-    <script src="static/js/main.js"></script>
-</body>
-</html>
+{% endblock %}
