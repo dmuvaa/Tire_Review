@@ -1,19 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
+
+{% block title %}
     {% if article %}
-    <title>{{ article.title|safe }}</title>
+        {{ article.title|safe }}
     {% else %}
-    <title>Blog</title>
+        Blog
     {% endif %}
-</head>
-<body>
-    {% if article %}
-    <div>{{ article.content|safe }}</div>
-    {% else %}
-    <div><p>Article not found Sorry!</p></div>
-    {% endif %}
-</body>
-</html>
+{% endblock %}
+
+{% block content %}
+    <div class="article-display">
+        {% if article %}
+            <!-- Use the 'safe' filter if your content contains HTML that should not be escaped -->
+            {{ article.content|safe }}
+        {% else %}
+            <p>Article not found. Sorry!</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/display.css') }}">
+{% endblock %}

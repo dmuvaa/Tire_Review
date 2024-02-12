@@ -3,6 +3,8 @@ from ..forms import ArticleForm
 from . import views
 from ..models import Article
 from .. import db
+from flask_login import login_user, current_user, login_required, logout_user
+from flask_sqlalchemy import pagination
 
 
 @views.route('/')
@@ -14,12 +16,14 @@ def index():
 def about():
     return render_template('about.html')
 
-@views.route('/article')
-def article():
-    return render_template('article1.html')
-
-@views.route('/blog', methods=['GET', 'POST'])
+@views.route('/blog')
 def blog():
+    page = request.args.get('page', 1, type=int)
+    articles = Article.query.paginate(page=page, per_page=10)
+    return render_template('articles.html', articles=articles)
+
+@views.route('/post-article', methods=['GET', 'POST'])
+def post_article():
     form = ArticleForm()
     if request.method == 'POST':
         title = request.form.get('title')

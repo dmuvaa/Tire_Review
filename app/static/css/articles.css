@@ -1,0 +1,61 @@
+/* articles.css */
+
+.articles-container {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.article {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.article:last-child {
+    border-bottom: none;
+}
+
+.article h2 {
+    margin: 0 0 10px 0;
+}
+
+.article h2 a {
+    color: #333;
+    text-decoration: none;
+}
+
+.article p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination li a {
+    color: #333;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    display: block;
+}
+
+.pagination li.active a,
+.pagination li a:hover {
+    background-color: #f0f0f0;
+}
+
+.pagination .disabled a {
+    color: #ccc;
+    cursor: not-allowed;
+}
